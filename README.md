@@ -2,7 +2,7 @@
 
 这是 `@yousizaitianqiong` 的静态个人能力展示页，入口为 [yousizaitianqiong.github.io](https://yousizaitianqiong.github.io/)。
 
-`index.html` 自包含样式与内容，无构建步骤、第三方脚本或外部资源依赖；可以直接打开，或托管在 GitHub Pages。公开内容仅使用 GitHub 昵称与 GitHub 联系入口。项目中仍在验证的工作与已完成工作分开表述。
+`index.html` 自包含样式、当前 GitHub 头像与内容，无构建步骤、第三方脚本或外部资源依赖；可以直接打开，或托管在 GitHub Pages。页面跟随系统浅色或深色设置，流程图用于说明已核实的工程步骤。公开身份信息仅包括 GitHub 昵称、头像与 GitHub 联系入口；仍在验证的工作与已完成工作分开表述。
 
 ## 本地查看
 

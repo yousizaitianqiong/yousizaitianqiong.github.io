@@ -3,202 +3,188 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#0d1117">
-  <meta name="description" content="@yousizaitianqiong 的个人能力展示：视觉大模型推理、GPU/HIP 科学计算、医学影像训练与可复现工程。">
-  <title>@yousizaitianqiong · 个人能力展示</title>
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="@yousizaitianqiong 的项目经历：视觉大模型推理部署、GPU/HIP 科学计算、医学影像训练与开源贡献。">
+  <title>@yousizaitianqiong · 项目与能力</title>
   <style>
-    :root{--bg:#0d1117;--panel:#151c27;--panel2:#1c2737;--line:#344155;--ink:#e6edf3;--muted:#a4b2c2;--accent:#79b8ff;--focus:#a9bbff;--max:1160px}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:86px}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.7}
-    body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 85% -12%,#24375766,transparent 35%),radial-gradient(circle at -10% 35%,#18294455,transparent 32%);z-index:-1}
-    ::selection{background:var(--accent);color:#0d1117}
-    a{color:var(--accent);text-underline-offset:4px;text-decoration-thickness:1px}
-    a:hover{color:#b8d9ff}
-    a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offset:4px;border-radius:3px}
-    .skip{position:absolute;top:-60px;left:12px;z-index:20;background:var(--accent);color:#0d1117;padding:8px 12px}
-    .skip:focus{top:10px}
-    .wrap{width:min(calc(100% - 48px),var(--max));margin-inline:auto}
-    .topbar{position:sticky;top:0;z-index:10;background:#0d1117ed;backdrop-filter:blur(15px);border-bottom:1px solid #344155a0}
-    .topbar .wrap{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-    .brand{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:14px;font-weight:750;letter-spacing:-.04em;color:var(--ink);text-decoration:none;white-space:nowrap}
-    .brand span{color:var(--accent)}
-    nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-    nav a{color:var(--muted);font-size:13px;text-decoration:none;white-space:nowrap}
-    nav a:hover{color:var(--accent)}
-    .nav-cta{border:1px solid var(--line);padding:6px 12px;border-radius:99px;color:var(--ink)}
-    main{overflow:hidden}
-    .hero{padding:105px 0 100px;min-height:635px;display:grid;grid-template-columns:1.35fr .9fr;align-items:center;gap:70px}
-    .eyebrow,.kicker,.mono,.overline{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.09em}
-    .eyebrow{color:var(--accent);font-size:12px;text-transform:uppercase;margin:0 0 22px}
-    h1,h2,h3,p{margin-top:0}
-    h1{font-size:clamp(48px,6.3vw,86px);line-height:1.1;letter-spacing:-.065em;margin-bottom:25px;font-weight:790}
-    h1 em{font-style:normal;color:var(--accent)}
-    .hero-lead{color:var(--ink);font-size:clamp(17px,1.8vw,21px);line-height:1.75;max-width:700px;margin-bottom:18px}
-    .hero-note{color:var(--muted);font-size:15px;max-width:660px;margin-bottom:30px}
-    .actions{display:flex;gap:12px;flex-wrap:wrap}
-    .button{display:inline-flex;align-items:center;gap:9px;padding:11px 19px;border:1px solid var(--line);border-radius:7px;text-decoration:none;color:var(--ink);font-weight:700;font-size:14px;transition:transform .18s,background .18s}
-    .button:hover{transform:translateY(-2px);background:var(--panel2);color:var(--ink)}
-    .button.primary{background:var(--accent);color:#0d1117;border-color:var(--accent)}
-    .button.primary:hover{background:#a8d3ff;color:#0d1117}
-    .hero-graphic{background:linear-gradient(145deg,#1b2a40,#111b2c);border:1px solid #4a6180;border-radius:18px;padding:25px;box-shadow:0 28px 80px #0005;position:relative}
-    .hero-graphic::after{content:"";position:absolute;inset:9px;border:1px solid #5e7ca444;border-radius:12px;pointer-events:none}
-    .window-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:0 0 15px;color:var(--muted);font-size:11px}
-    .dots{display:flex;gap:5px}.dots i{display:block;width:7px;height:7px;border-radius:50%;background:#74869b}.dots i:first-child{background:var(--accent)}
-    .graph-title{font-size:12px;color:var(--focus);margin:24px 0 16px}
-    .graph-row{display:grid;grid-template-columns:33px 1fr;gap:14px;align-items:start;margin-bottom:13px}
-    .graph-n{color:var(--accent);font-size:11px;padding-top:12px}
-    .graph-box{border:1px solid #4b607d;background:#1c2b3f;border-radius:8px;padding:10px 13px;font-size:13px;font-weight:720}
-    .graph-box small{display:block;font-size:11px;font-weight:400;color:var(--muted);margin-top:1px}
-    .graph-row:not(:last-of-type) .graph-box::after{content:"↓";display:block;position:absolute;color:var(--focus);margin:14px 0 0 8px;font-weight:400}
-    .graph-end{margin-top:26px;border-top:1px solid var(--line);padding-top:14px;font-size:11px;color:var(--muted)}
-    .graph-end strong{color:var(--accent);font-weight:650}
-    section{padding:92px 0;border-top:1px solid #344155a0}
-    .section-head{display:grid;grid-template-columns:170px 1fr;gap:32px;margin-bottom:38px}
-    .kicker{color:var(--accent);font-size:12px;margin-top:10px}
-    h2{font-size:clamp(31px,3.8vw,49px);line-height:1.2;letter-spacing:-.045em;margin-bottom:13px}
-    .section-intro{color:var(--muted);max-width:760px;margin:0}
-    .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .card{background:linear-gradient(150deg,var(--panel),#121a26);border:1px solid var(--line);border-radius:13px;padding:27px}
-    .card-num{color:var(--accent);font-size:11px;margin-bottom:25px}
-    .card h3{font-size:21px;line-height:1.35;margin-bottom:12px;letter-spacing:-.025em}
-    .card p{color:var(--muted);font-size:14px;margin-bottom:22px}
-    .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}
-    .chip{display:inline-block;border:1px solid #45566d;color:#c6d4e2;padding:3px 8px;border-radius:4px;font-size:11px;line-height:1.5}
-    .case{display:grid;grid-template-columns:250px 1fr;gap:40px;padding:37px 0;border-top:1px solid var(--line)}
-    .case:first-of-type{border-top:0;padding-top:0}
-    .case-side{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
-    .case-index{font-size:13px;color:var(--accent)}
-    .status{font-size:11px;border-radius:99px;padding:4px 10px;background:#1c3450;color:#b8daff;border:1px solid #3f678f}
-    .status.muted{background:#283246;border-color:#626c83;color:#d8d0ef}
-    .case h3{font-size:clamp(24px,2.5vw,32px);line-height:1.35;letter-spacing:-.035em;margin-bottom:12px}
-    .case .summary{font-size:16px;color:#d5e0ed;max-width:780px;margin-bottom:20px}
-    .case-list{margin:0 0 18px;padding-left:19px;color:var(--muted);font-size:14px}
-    .case-list li{padding-left:3px;margin:8px 0}
-    .case-list b{color:var(--ink);font-weight:700}
-    .case-link{font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:7px}
-    .subnote{font-size:12px;color:#98a8ba;margin:18px 0 0}
-    .research-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:15px}
-    .research-layout .card{min-height:270px}
-    .research-layout h3{font-size:24px}
-    .research-layout ul{padding-left:18px;color:var(--muted);font-size:14px;margin-bottom:0}
-    .research-layout li{margin:8px 0}
-    .mini-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .mini-list .card{display:flex;flex-direction:column;min-height:250px}
-    .mini-list .card p{flex:1}
-    .proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    .proof{border:1px solid var(--line);border-radius:9px;padding:18px 20px;text-decoration:none;background:#141d2a;display:flex;gap:20px;align-items:center;justify-content:space-between;color:var(--ink)}
-    .proof:hover{background:#1b2b40;color:var(--ink)}
-    .proof b{display:block;font-size:15px}.proof small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
-    .proof span:last-child{color:var(--accent);font-size:20px}
-    .footer{padding:52px 0 70px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:22px;color:var(--muted);font-size:13px}
-    .footer strong{color:var(--ink);display:block;font-size:18px;margin-bottom:5px}
-    @media(max-width:900px){.hero{gap:30px;grid-template-columns:1fr .75fr}.section-head{grid-template-columns:120px 1fr}.case{grid-template-columns:170px 1fr;gap:22px}.card{padding:22px}}
-    @media(max-width:700px){.wrap{width:min(calc(100% - 32px),var(--max))}.topbar .wrap{min-height:auto;padding:13px 0;display:block}.brand{display:block;margin-bottom:9px;font-size:13px}nav{gap:12px}nav a{font-size:12px}.nav-cta{padding:3px 8px}.hero{display:block;min-height:auto;padding:67px 0 65px}.hero-graphic{margin-top:45px;max-width:480px}.hero-note{font-size:14px}section{padding:65px 0}.section-head{display:block}.kicker{margin-bottom:13px}.cap-grid,.research-layout,.mini-list,.proof-grid{grid-template-columns:1fr}.case{display:block;padding:32px 0}.case-side{flex-direction:row;align-items:center;gap:10px;margin-bottom:13px}.case h3{font-size:25px}.footer{display:block}.footer>div+div{margin-top:22px}}
-    @media(max-width:390px){nav{gap:9px}nav a{font-size:11px}h1{font-size:45px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
-    @media print{.topbar{position:static}body,body::before{background:#fff;color:#111}section{break-inside:avoid}.card,.proof,.hero-graphic{background:#fff;color:#111;box-shadow:none}.card p,.case-list,.section-intro,.hero-note{color:#333}a{color:#174f91}}
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --text: #1f2328;
+      --muted: #59636e;
+      --border: #d1d9e0;
+      --subtle: #f6f8fa;
+      --link: #0969da;
+      --focus: #0969da;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --bg: #0d1117;
+        --text: #f0f6fc;
+        --muted: #a7b0bb;
+        --border: #3d444d;
+        --subtle: #151b23;
+        --link: #79b8ff;
+        --focus: #79b8ff;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "Microsoft YaHei", sans-serif; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+    .skip { position: absolute; left: 12px; top: -60px; z-index: 10; padding: 7px 10px; background: var(--subtle); border: 1px solid var(--border); }
+    .skip:focus { top: 8px; }
+    .wrap { width: min(900px, calc(100% - 40px)); margin-inline: auto; }
+    .topbar { border-bottom: 1px solid var(--border); }
+    .topbar .wrap { min-height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .site-name { color: var(--text); font-weight: 650; white-space: nowrap; }
+    nav { display: flex; flex-wrap: wrap; gap: 16px; }
+    nav a { font-size: 13px; color: var(--muted); white-space: nowrap; }
+    nav a:hover { color: var(--link); }
+    .profile { display: flex; align-items: center; gap: 17px; padding: 30px 0 25px; border-bottom: 1px solid var(--border); }
+    .avatar-link { display: block; flex: 0 0 64px; width: 64px; height: 64px; border-radius: 50%; }
+    .avatar { display: block; width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 2px; font-size: 27px; line-height: 1.25; letter-spacing: -.025em; overflow-wrap: anywhere; }
+    .profile p { margin: 0; color: var(--muted); font-size: 14px; }
+    section { padding: 22px 0 4px; }
+    section + section { border-top: 1px solid var(--border); margin-top: 12px; }
+    h2 { font-size: 20px; line-height: 1.35; letter-spacing: -.015em; margin: 0 0 11px; }
+    h3 { font-size: 16px; line-height: 1.45; margin: 0; }
+    .entry { padding: 14px 0 15px; border-top: 1px solid var(--border); }
+    .entry:first-of-type { border-top: 0; padding-top: 3px; }
+    .entry-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 7px 10px; margin-bottom: 6px; }
+    .tag { color: var(--muted); background: var(--subtle); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; font-size: 12px; line-height: 1.5; white-space: nowrap; }
+    ul { margin: 6px 0 0; padding-left: 22px; }
+    li { padding-left: 2px; margin: 3px 0; }
+    .links { margin: 8px 0 0; font-size: 13px; }
+    .links a + a::before { content: " · "; color: var(--muted); text-decoration: none; }
+    .note { color: var(--muted); font-size: 13px; }
+    .diagram { margin: 11px 0 8px; padding: 10px 12px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--subtle); }
+    .diagram figcaption { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+    .flow { display: flex; gap: 18px; list-style: none; padding: 0; margin: 0; }
+    .flow li { flex: 1; min-width: 0; position: relative; margin: 0; padding: 7px 9px; border: 1px solid var(--border); border-radius: 4px; background: var(--bg); font-size: 13px; line-height: 1.4; }
+    .flow li + li::before { content: "→"; position: absolute; left: -16px; top: 50%; transform: translateY(-50%); color: var(--link); font-weight: 700; }
+    .flow small { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
+    .metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 10px 0 7px; }
+    .metric { padding: 8px 11px; border: 1px solid var(--border); border-radius: 5px; background: var(--subtle); }
+    .metric strong { display: block; font-size: 18px; line-height: 1.25; font-variant-numeric: tabular-nums; }
+    .metric span { color: var(--muted); font-size: 12px; }
+    .compact-list { margin: 0 0 16px; }
+    .compact-list li { margin: 7px 0; }
+    .compact-list strong { color: var(--text); }
+    .contributions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; list-style: none; padding: 0; margin: 5px 0 18px; }
+    .contributions li { border-top: 1px solid var(--border); margin: 0; padding: 9px 0; font-size: 14px; }
+    .contributions span { color: var(--muted); font-size: 12px; margin-left: 5px; }
+    footer { margin-top: 14px; padding: 19px 0 34px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 30px, 900px); }
+      .topbar .wrap { padding: 10px 0; min-height: 0; align-items: flex-start; flex-direction: column; gap: 4px; }
+      nav { gap: 13px; }
+      .profile { padding: 23px 0 21px; gap: 13px; }
+      .avatar-link, .avatar { width: 56px; height: 56px; }
+      .avatar-link { flex-basis: 56px; }
+      h1 { font-size: 23px; }
+      .profile p { font-size: 13px; }
+      section { padding-top: 19px; }
+      h2 { font-size: 19px; }
+      .flow { flex-direction: column; gap: 12px; }
+      .flow li + li::before { content: "↓"; left: 50%; top: -14px; transform: translateX(-50%); }
+      .metric { padding: 7px 8px; }
+      .metric strong { font-size: 16px; }
+      .contributions { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      :root { color-scheme: light; --bg: #fff; --text: #111; --muted: #444; --border: #bbb; --subtle: #f5f5f5; --link: #064c9e; }
+      .topbar { display: none; }
+      .wrap { width: 100%; }
+      .entry { break-inside: avoid; }
+    }
   </style>
 </head>
 <body>
   <a class="skip" href="#main">跳转到正文</a>
   <header class="topbar">
     <div class="wrap">
-      <a class="brand" href="#top" aria-label="返回页面顶部"><span>&lt;</span> yousizaitianqiong <span>/&gt;</span></a>
-      <nav aria-label="页面导航">
-        <a href="#abilities">能力</a><a href="#cases">项目</a><a href="#research">研究</a><a href="#opensource">开源</a><a class="nav-cta" href="https://github.com/yousizaitianqiong" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-      </nav>
+      <a class="site-name" href="#top">@yousizaitianqiong</a>
+      <nav aria-label="页面导航"><a href="#projects">项目经历</a><a href="#research">研究与论文</a><a href="#opensource">开源贡献</a><a href="https://github.com/yousizaitianqiong" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav>
     </div>
   </header>
-  <main id="main">
-    <div id="top" class="wrap hero">
-      <div>
-        <p class="eyebrow">Applied Vision AI / GPU Computing / Reproducible Systems</p>
-        <h1>把模型能力，<br><em>做成可靠的工程。</em></h1>
-        <p class="hero-lead">我是 <strong>@yousizaitianqiong</strong>，聚焦视觉大模型推理、GPU/HIP 科学计算与参数高效训练。实践过双 RTX A5000 上的 vLLM 私有化部署、Slurm 大网格计算作业，以及 RETFound / PEFT 医学影像训练。</p>
-        <p class="hero-note">从算力与数值验证，到模型服务、数据处理和结果审查；对公开案例明确区分已完成工作、脱敏演示与仍在验证的方向。</p>
-        <div class="actions"><a class="button primary" href="#cases">查看项目案例 <span aria-hidden="true">↘</span></a><a class="button" href="https://github.com/yousizaitianqiong" target="_blank" rel="noopener noreferrer">通过 GitHub 联系我 ↗</a></div>
-      </div>
-      <div class="hero-graphic" role="img" aria-label="从计算验证、模型部署、应用联调到可复现交付的工程流程示意">
-        <div class="window-head"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><span class="mono">CAPABILITY_PIPELINE / 01</span></div>
-        <p class="graph-title mono">// 从计算到服务的闭环</p>
-        <div class="graph-row"><span class="graph-n mono">01</span><div class="graph-box">算力与数值验证<small>Slurm · GPU / HIP · CPU 对照</small></div></div>
-        <div class="graph-row"><span class="graph-n mono">02</span><div class="graph-box">模型训练与部署<small>RETFound / PEFT · Qwen3-VL / vLLM</small></div></div>
-        <div class="graph-row"><span class="graph-n mono">03</span><div class="graph-box">接口与工作流联调<small>FastAPI · 媒体预处理 · 脱敏 Demo</small></div></div>
-        <div class="graph-row"><span class="graph-n mono">04</span><div class="graph-box">复核与可复现交付<small>日志 · 测试 · 文档 · GitHub Actions</small></div></div>
-        <div class="graph-end mono">STATUS <strong>● EVIDENCE-LED ENGINEERING</strong></div>
-      </div>
-    </div>
+  <main class="wrap" id="main">
+    <header class="profile" id="top">
+      <a class="avatar-link" href="https://github.com/yousizaitianqiong" target="_blank" rel="noopener noreferrer" aria-label="打开 GitHub 主页"><img class="avatar" src="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAcwBzAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/ANCiiivrDxRR0pCc0UUriCiiimIKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigBcUlBOaKGMKKKKlIQUUUVQwooooEFFFFFgCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKQBRRRTAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiikOR0GaLjsxaKQbj1XFMeaKPPmTwxn0dwprOVWMdx8rJKKYJYmOIpUm4yTEd2Pyp2eQB1PY041Iy2BxaFoooqyQooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooozRcAooopXAKKKKaYBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABSfSnBWIyBx0rK1rWrfR7bdKy72Hyxjq1ZVaqpq7LhByehfnuIbaJ5J5UjRRkl2ArldQ8dRIHisYGdyvyyN6/Ss7RvD2t/EDU2n2uLcEAt0VR6CvbfDPwz0fQoUeaHz7kDO9ua8jEY9t2iehDDq2p4lCfGOvAeRDcKGHBUMv6iryfDDxlejdcbs+ruWP619JxokaBUjVQOAAKlHSuGVaUt2bqnE+ZP+Fb+MtOyYTOB/wBMnZf5VRmu/FXh+VBdx3BG7J3xlsj6npX1XVa5tYrlCkkSOp7MKI15xejE6cX0PnTT/G1vcusV3Gbd2O1WzkZ9/SurBV0DxSq6EfeXkfhW/wCLvhJpWvI89mv2a76jacA14451jwHqn2S6iwjPzu5Vh613UMa0/eMalBPY9FHIziiq2n6lbapZC8tnBQ8MO6mrXFezCamro8+UeV2Eop1IasgSiiigAooooAKKKKACiiigAooooAKKKKSAKKKKYBRRRQAUUUAgk8ZxSbsrjSu7BjPfFQz3tpawl7mZIgv95gCa5fxD4u+ysbLTGEkjghnUcqemBR4Y+GmueKpVvdQV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iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/9k=" width="64" height="64" alt="@yousizaitianqiong 的 GitHub 头像"></a>
+      <div><h1>@yousizaitianqiong</h1><p>视觉大模型推理部署 · GPU/HIP 科学计算 · 医学影像模型训练</p></div>
+    </header>
 
-    <section id="abilities" aria-labelledby="abilities-title">
-      <div class="wrap">
-        <div class="section-head"><p class="kicker">01 / CAPABILITIES</p><div><h2 id="abilities-title">我能解决什么问题</h2><p class="section-intro">围绕视觉 AI 研发与算力工程，将实验、作业、模型和接口串成可检查的流程。</p></div></div>
-        <div class="cap-grid">
-          <article class="card"><p class="card-num mono">01 — INFERENCE</p><h3>视觉大模型推理与私有化部署</h3><p>完成双 RTX A5000 环境中的 Qwen3-VL-8B / vLLM 部署与 OpenAI 兼容接口联调；理解推理优化机制，并按实测与计划分别陈述。</p><div class="chips"><span class="chip">vLLM</span><span class="chip">Qwen3-VL</span><span class="chip">FastAPI</span><span class="chip">Dify</span></div></article>
-          <article class="card"><p class="card-num mono">02 — COMPUTE</p><h3>GPU/HIP 科学计算作业</h3><p>将 PFC 求解流程接入 Slurm 管理的 GPU/HIP 环境，完成 3456 × 2304 网格两阶段仿真与 CPU/HIP 数值一致性验证。</p><div class="chips"><span class="chip">C11</span><span class="chip">FFTW</span><span class="chip">OpenMP</span><span class="chip">Slurm</span><span class="chip">HIP</span></div></article>
-          <article class="card"><p class="card-num mono">03 — TRAINING</p><h3>医学影像模型训练</h3><p>在眼底筛查研究中适配 RETFound 与 Adapter / PEFT，设计长尾数据训练和评估流程，并参与异步推理接口联调。</p><div class="chips"><span class="chip">RETFound</span><span class="chip">Adapter</span><span class="chip">PEFT</span><span class="chip">AUC / Macro F1</span></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="cases" aria-labelledby="cases-title">
-      <div class="wrap">
-        <div class="section-head"><p class="kicker">02 / SELECTED WORK</p><div><h2 id="cases-title">项目案例</h2><p class="section-intro">每个案例都写清做了什么、验证到了哪里，以及哪些材料能公开查看。</p></div></div>
-
-        <article class="case" id="case-vision">
-          <div class="case-side"><span class="case-index mono">CASE / 01</span><span class="status">部署已完成 · Demo 脱敏</span></div>
-          <div><h3>视觉道路监测：模型服务与媒体工作流</h3><p class="summary">在双 RTX A5000 上完成 Qwen3-VL-8B 的 vLLM 私有化部署和接口联调；将图片、短视频输入整理为可复核的视觉推理请求。</p>
-            <ul class="case-list"><li><b>实际工作：</b>模型选型与部署验证、OpenAI 兼容 API、GPU 推理链路，以及媒体预处理与工作流接口协作。</li><li><b>公开演示：</b>以 FastAPI / FFmpeg 处理图片和短视频；视频均匀抽取最多 8 帧，生成附时间标记的联系表。仓库使用 Mock 模型复现协议，不包含真实权重或生产结果。</li><li><b>仍在验证：</b>双模型复核、真实 Dify 编排效果与视频稳定性；没有公开可归因的吞吐、延迟或加速数据。</li></ul>
-            <a class="case-link" href="https://github.com/yousizaitianqiong/vision-dual-model-workflow" target="_blank" rel="noopener noreferrer">查看脱敏工作流 Demo ↗</a><p class="subnote">公开仓库是个人技术演示，不代表项目组织发布。</p>
-          </div>
-        </article>
-
-        <article class="case" id="case-hpc">
-          <div class="case-side"><span class="case-index mono">CASE / 02</span><span class="status">作业与一致性已验证</span></div>
-          <div><h3>多晶石墨烯 PFC：大网格仿真与 GPU/HIP 验证</h3><p class="summary">用 C11、FFTW 与 OpenMP 组织两阶段 PFC 密度场求解，并在 Slurm 管理的 GPU/HIP 计算环境完成 3456 × 2304 网格作业。</p>
-            <ul class="case-list"><li><b>计算流程：</b>随机成核与生长、阶段结果重载及松弛；输出密度场快照、Extended XYZ 坐标和诊断图像。</li><li><b>可靠性：</b>对照 CPU 与 HIP 数值结果，记录阶段输入、日志和校验清单；用 smoke test 与 CI 覆盖求解及输出格式。</li><li><b>经验边界：</b>这里展示的是超算环境中的作业与验证经验；不宣称平台运维、分布式并行能力或未经测试的加速幅度。</li></ul>
-            <p class="subnote">计算数据与运行环境不公开。<a href="https://github.com/yousizaitianqiong/polygr-pfc" target="_blank" rel="noopener noreferrer">查看相关公开代码 fork ↗</a>；该仓库 fork 自 abhpc/polygr-pfc，上游代码不视为个人原创。</p>
-          </div>
-        </article>
-
-        <article class="case" id="case-medical">
-          <div class="case-side"><span class="case-index mono">CASE / 03</span><span class="status">训练与评估已完成</span></div>
-          <div><h3>高原眼病筛查：RETFound / PEFT 训练</h3><p class="summary">围绕 15 类疾病的长尾分布，将 RETFound（ViT-Large）与 Adapter / PEFT 结合，完成模型训练、评估和服务联调。</p>
-            <ul class="case-list"><li><b>模型方案：</b>参与分层采样、数据增强、参数高效适配与二分类分治训练流程；以 Accuracy、AUC-ROC 和 Macro F1 审视结果。</li><li><b>汇总指标：</b>测试集 Accuracy 89.73%、AUC-ROC 0.935、Macro F1 0.809；指标来自项目实验记录，并非公开数据集基准。</li><li><b>工程协作：</b>参与 RabbitMQ 异步推理和 REST API 联调。相关计算机视觉研究论文仍在投稿阶段。</li></ul>
-            <p class="subnote"><a href="https://github.com/yousizaitianqiong/yousizaitianqiong/blob/main/projects/plateau-retina-screening.md" target="_blank" rel="noopener noreferrer">查看脱敏项目档案 ↗</a>。合作数据、患者图像、权重、训练日志和未发表稿件均不公开。上游模型项目：<a href="https://github.com/rmaphoh/RETFound" target="_blank" rel="noopener noreferrer">RETFound ↗</a>。</p>
-          </div>
-        </article>
-      </div>
+    <section id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">项目经历</h2>
+      <article class="entry">
+        <div class="entry-head"><h3>视觉道路监测：Qwen3-VL 推理服务与媒体工作流</h3><span class="tag">部署已完成</span><span class="tag">公开仓库为脱敏 Demo</span></div>
+        <ul>
+          <li>在双 RTX A5000 上完成 Qwen3-VL-8B / vLLM 私有化服务部署，以及 GPU 推理、OpenAI 兼容 API 与内网调用联调。</li>
+          <li>双模型实际复核、Dify 业务编排和真实视频稳定性仍在验证；暂无可公开的吞吐、延迟或加速结论。</li>
+        </ul>
+        <figure class="diagram">
+          <figcaption>公开脱敏 Demo 流程 · Mock 服务仅验证媒体和接口，不代表真实模型效果</figcaption>
+          <ol class="flow">
+            <li>图片 / 短视频<small>自定义提示词</small></li>
+            <li>FastAPI + FFmpeg<small>规范化与均匀抽帧</small></li>
+            <li>JPEG / 联系表<small>视频最多 8 帧</small></li>
+            <li>Mock 模型接口<small>工作流协议演示</small></li>
+          </ol>
+        </figure>
+        <p class="links"><a href="https://github.com/yousizaitianqiong/vision-dual-model-workflow" target="_blank" rel="noopener noreferrer">脱敏工作流 Demo ↗</a></p>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h3>多晶石墨烯 PFC：Slurm GPU/HIP 计算作业</h3><span class="tag">作业与数值验证已完成</span></div>
+        <figure class="diagram">
+          <figcaption>两阶段仿真与结果核验 · 已完成的作业流程</figcaption>
+          <ol class="flow">
+            <li>C11 / FFTW / OpenMP<small>PFC 密度场求解</small></li>
+            <li>Slurm GPU/HIP<small>3456 × 2304 网格</small></li>
+            <li>CPU/HIP 对照<small>数值一致性验证</small></li>
+            <li>可追溯输出<small>快照 · XYZ · 日志 · CI</small></li>
+          </ol>
+        </figure>
+        <p class="note">经历范围为计算作业和验证，不涉及平台运维或未经测量的加速幅度。</p>
+        <p class="links"><a href="https://github.com/yousizaitianqiong/polygr-pfc" target="_blank" rel="noopener noreferrer">相关公开代码 fork ↗</a><span class="note">（fork 自 abhpc/polygr-pfc）</span></p>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h3>高原眼病筛查：RETFound / PEFT 模型训练</h3><span class="tag">训练与评估已完成</span></div>
+        <ul>
+          <li>围绕 15 类疾病的长尾数据适配 RETFound（ViT-Large）与 Adapter / PEFT，参与训练、评估和 RabbitMQ 异步推理及 REST API 联调。</li>
+        </ul>
+        <div class="metrics" aria-label="项目测试集汇总指标"><div class="metric"><strong>89.73%</strong><span>Accuracy</span></div><div class="metric"><strong>0.935</strong><span>AUC-ROC</span></div><div class="metric"><strong>0.809</strong><span>Macro F1</span></div></div>
+        <p class="note">指标来自项目测试集，不是公开数据集基准；合作数据与模型权重不公开。</p>
+        <p class="links"><a href="https://github.com/yousizaitianqiong/yousizaitianqiong/blob/main/projects/plateau-retina-screening.md" target="_blank" rel="noopener noreferrer">脱敏项目档案 ↗</a><a href="https://github.com/rmaphoh/RETFound" target="_blank" rel="noopener noreferrer">RETFound 上游项目 ↗</a></p>
+      </article>
     </section>
 
     <section id="research" aria-labelledby="research-title">
-      <div class="wrap">
-        <div class="section-head"><p class="kicker">03 / RESEARCH &amp; METHODS</p><div><h2 id="research-title">把机制研究和实验结果分开</h2><p class="section-intro">技术研究提供实验设计依据；性能结论需要独立压测、环境记录和可复核数据。</p></div></div>
-        <div class="research-layout">
-          <article class="card"><p class="card-num mono">INFERENCE / STUDY</p><h3>vLLM 与推测解码机制梳理</h3><p>围绕 PagedAttention、连续批处理、KV Cache 管理、推测解码的草稿与验证流程，完成原理研究和技术汇报，形成可供后续压测使用的指标与对照框架。</p><ul><li>关注吞吐、首 token 延迟、输出速度、显存和接受率等指标的测量方法。</li><li>推测解码的对照压测属于后续计划；当前没有可公开的实测加速结论。</li></ul></article>
-          <article class="card"><p class="card-num mono">RESEARCH / VISION &amp; AUDIO</p><h3>视觉与音频模型研究</h3><p>医学影像方向参与 RETFound / PEFT 训练及计算机视觉论文写作，相关论文仍在投稿。鸟鸣声识别方向参与 HuBERT 迁移、注意力掩码与掩码感知池化实验，并协助识别流程联调。</p><ul><li>鸟鸣音频分类论文已发表于 IEEE ECCST 2025，本人为第二作者；<a href="https://doi.org/10.1109/ECCST68196.2025.11441174" target="_blank" rel="noopener noreferrer">查看 DOI ↗</a>。</li><li>论文与平台成果属于团队协作；<a href="https://github.com/yousizaitianqiong/yousizaitianqiong/blob/main/projects/bird-audio-platform.md" target="_blank" rel="noopener noreferrer">鸟鸣项目脱敏档案 ↗</a>。</li></ul></article>
-        </div>
-      </div>
+      <h2 id="research-title">研究与论文</h2>
+      <ul class="compact-list">
+        <li><strong>vLLM 推理机制：</strong>完成连续批处理、PagedAttention、KV Cache 与推测解码的原理研究和汇报；推测解码对照压测仍属计划，没有实测加速结论。</li>
+        <li><strong>医学影像计算机视觉：</strong>参与 RETFound / PEFT 训练及论文写作，相关论文共同一作在投，未公开稿件。</li>
+        <li><strong>鸟鸣音频分类：</strong>参与 HuBERT 迁移、注意力掩码和识别流程联调；作为第二作者发表 <a href="https://doi.org/10.1109/ECCST68196.2025.11441174" target="_blank" rel="noopener noreferrer">IEEE ECCST 2025 论文 ↗</a>。<a href="https://github.com/yousizaitianqiong/yousizaitianqiong/blob/main/projects/bird-audio-platform.md" target="_blank" rel="noopener noreferrer">项目档案 ↗</a></li>
+      </ul>
     </section>
 
     <section id="opensource" aria-labelledby="opensource-title">
-      <div class="wrap">
-        <div class="section-head"><p class="kicker">04 / PUBLIC EVIDENCE</p><div><h2 id="opensource-title">可查看的开源工作</h2><p class="section-intro">公开仓库与已合并贡献提供可点击的代码证据；私有项目只展示脱敏方法和事实边界。</p></div></div>
-        <div class="mini-list">
-          <article class="card"><p class="card-num mono">REPOSITORY / 01</p><h3>视觉双模型工作流 Demo</h3><p>用 Mock 模型、FastAPI 媒体服务与 Dify 工作流文件展示接口契约、预处理和验证方法。它是脱敏演示，不承载真实模型效果。</p><a class="case-link" href="https://github.com/yousizaitianqiong/vision-dual-model-workflow" target="_blank" rel="noopener noreferrer">浏览项目仓库 ↗</a></article>
-          <article class="card"><p class="card-num mono">REPOSITORY / 02</p><h3>Yukie Head Pet</h3><p>一个可复用的桌面宠物与精灵图交付项目，覆盖 Python / PowerShell 辅助脚本、资源打包、质量检查和 GitHub Actions；已有 v1.0.0 Release。</p><a class="case-link" href="https://github.com/yousizaitianqiong/yukie-head-pet/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">查看 v1.0.0 发布 ↗</a></article>
-        </div>
-        <h3 style="font-size:21px;margin:44px 0 16px">已合并的社区贡献</h3>
-        <div class="proof-grid">
-          <a class="proof" href="https://github.com/GenericMappingTools/pygmt/pull/4835" target="_blank" rel="noopener noreferrer"><span><b>PyGMT · PR #4835</b><small>地学绘图工具链贡献 · 已合并</small></span><span aria-hidden="true">↗</span></a>
-          <a class="proof" href="https://github.com/the1812/Bilibili-Evolved/pull/5743" target="_blank" rel="noopener noreferrer"><span><b>Bilibili-Evolved · PR #5743</b><small>开源用户体验改进 · 已合并</small></span><span aria-hidden="true">↗</span></a>
-          <a class="proof" href="https://github.com/duan602728596/48tools/pull/170" target="_blank" rel="noopener noreferrer"><span><b>48tools · PR #170</b><small>应用工程贡献 · 已合并</small></span><span aria-hidden="true">↗</span></a>
-          <a class="proof" href="https://github.com/Fei-Away/Codex-Dream-Skin/pull/386" target="_blank" rel="noopener noreferrer"><span><b>Codex Dream Skin · PR #386</b><small>界面项目贡献 · 已合并</small></span><span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
+      <h2 id="opensource-title">开源贡献</h2>
+      <p><a href="https://github.com/yousizaitianqiong/yukie-head-pet/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">Yukie Head Pet v1.0.0 ↗</a>：维护桌面宠物资源打包、Python / PowerShell 工具与 GitHub Actions 验证流程。</p>
+      <p class="note">以下 Pull Request 均已由上游合并：</p>
+      <ul class="contributions">
+        <li><a href="https://github.com/GenericMappingTools/pygmt/pull/4835" target="_blank" rel="noopener noreferrer">PyGMT #4835 ↗</a><span>Python API 维护</span></li>
+        <li><a href="https://github.com/the1812/Bilibili-Evolved/pull/5743" target="_blank" rel="noopener noreferrer">Bilibili-Evolved #5743 ↗</a><span>播放器状态修复</span></li>
+        <li><a href="https://github.com/duan602728596/48tools/pull/170" target="_blank" rel="noopener noreferrer">48tools #170 ↗</a><span>应用工程贡献</span></li>
+        <li><a href="https://github.com/Fei-Away/Codex-Dream-Skin/pull/386" target="_blank" rel="noopener noreferrer">Codex Dream Skin #386 ↗</a><span>界面项目贡献</span></li>
+      </ul>
     </section>
   </main>
-  <footer class="wrap footer"><div><strong>@yousizaitianqiong</strong>视觉 AI · GPU 计算 · 可复现工程</div><div>公开联系入口：<a href="https://github.com/yousizaitianqiong" target="_blank" rel="noopener noreferrer">GitHub 主页 ↗</a><br>本页为个人能力展示，内容按公开边界整理。</div></footer>
+  <footer class="wrap">公开联系入口：<a href="https://github.com/yousizaitianqiong" target="_blank" rel="noopener noreferrer">GitHub 主页 ↗</a>。私有项目仅展示脱敏事实与已核实的汇总指标。</footer>
 </body>
 </html>
