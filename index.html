@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b1513">
+  <meta name="description" content="@yousizaitianqiong 的个人能力展示：视觉大模型推理、GPU/HIP 科学计算、医学影像训练与可复现工程。">
+  <title>@yousizaitianqiong · 个人能力展示</title>
+  <style>
+    :root{--bg:#0b1513;--panel:#11211d;--panel2:#152923;--line:#2e4940;--ink:#ecf2eb;--muted:#aabdb2;--green:#b8f17a;--cyan:#6dd4c0;--amber:#f2cf8a;--max:1160px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.7}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 85% -12%,#22534155,transparent 35%),radial-gradient(circle at -10% 35%,#143b3555,transparent 32%);z-index:-1}
+    ::selection{background:var(--green);color:#102018}
+    a{color:var(--green);text-underline-offset:4px;text-decoration-thickness:1px}
+    a:hover{color:#d4ffad}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--cyan);outline-offset:4px;border-radius:3px}
+    .skip{position:absolute;top:-60px;left:12px;z-index:20;background:var(--green);color:#102018;padding:8px 12px}
+    .skip:focus{top:10px}
+    .wrap{width:min(calc(100% - 48px),var(--max));margin-inline:auto}
+    .topbar{position:sticky;top:0;z-index:10;background:#0b1513e8;backdrop-filter:blur(15px);border-bottom:1px solid #35524770}
+    .topbar .wrap{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:14px;font-weight:750;letter-spacing:-.04em;color:var(--ink);text-decoration:none;white-space:nowrap}
+    .brand span{color:var(--green)}
+    nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+    nav a{color:var(--muted);font-size:13px;text-decoration:none;white-space:nowrap}
+    nav a:hover{color:var(--green)}
+    .nav-cta{border:1px solid var(--line);padding:6px 12px;border-radius:99px;color:var(--ink)}
+    main{overflow:hidden}
+    .hero{padding:105px 0 100px;min-height:635px;display:grid;grid-template-columns:1.35fr .9fr;align-items:center;gap:70px}
+    .eyebrow,.kicker,.mono,.overline{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.09em}
+    .eyebrow{color:var(--green);font-size:12px;text-transform:uppercase;margin:0 0 22px}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-size:clamp(48px,6.3vw,86px);line-height:1.1;letter-spacing:-.065em;margin-bottom:25px;font-weight:790}
+    h1 em{font-style:normal;color:var(--green)}
+    .hero-lead{color:var(--ink);font-size:clamp(17px,1.8vw,21px);line-height:1.75;max-width:700px;margin-bottom:18px}
+    .hero-note{color:var(--muted);font-size:15px;max-width:660px;margin-bottom:30px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .button{display:inline-flex;align-items:center;gap:9px;padding:11px 19px;border:1px solid var(--line);border-radius:7px;text-decoration:none;color:var(--ink);font-weight:700;font-size:14px;transition:transform .18s,background .18s}
+    .button:hover{transform:translateY(-2px);background:var(--panel2);color:var(--ink)}
+    .button.primary{background:var(--green);color:#0c1b14;border-color:var(--green)}
+    .button.primary:hover{background:#d1ffa7;color:#0c1b14}
+    .hero-graphic{background:linear-gradient(145deg,#142d26,#0e211c);border:1px solid #3b6354;border-radius:18px;padding:25px;box-shadow:0 28px 80px #0005;position:relative}
+    .hero-graphic::after{content:"";position:absolute;inset:9px;border:1px solid #38604b55;border-radius:12px;pointer-events:none}
+    .window-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:0 0 15px;color:var(--muted);font-size:11px}
+    .dots{display:flex;gap:5px}.dots i{display:block;width:7px;height:7px;border-radius:50%;background:#658779}.dots i:first-child{background:var(--green)}
+    .graph-title{font-size:12px;color:var(--cyan);margin:24px 0 16px}
+    .graph-row{display:grid;grid-template-columns:33px 1fr;gap:14px;align-items:start;margin-bottom:13px}
+    .graph-n{color:var(--green);font-size:11px;padding-top:12px}
+    .graph-box{border:1px solid #466755;background:#183329;border-radius:8px;padding:10px 13px;font-size:13px;font-weight:720}
+    .graph-box small{display:block;font-size:11px;font-weight:400;color:var(--muted);margin-top:1px}
+    .graph-row:not(:last-of-type) .graph-box::after{content:"↓";display:block;position:absolute;color:var(--cyan);margin:14px 0 0 8px;font-weight:400}
+    .graph-end{margin-top:26px;border-top:1px solid var(--line);padding-top:14px;font-size:11px;color:var(--muted)}
+    .graph-end strong{color:var(--green);font-weight:650}
+    section{padding:92px 0;border-top:1px solid #34524677}
+    .section-head{display:grid;grid-template-columns:170px 1fr;gap:32px;margin-bottom:38px}
+    .kicker{color:var(--green);font-size:12px;margin-top:10px}
+    h2{font-size:clamp(31px,3.8vw,49px);line-height:1.2;letter-spacing:-.045em;margin-bottom:13px}
+    .section-intro{color:var(--muted);max-width:760px;margin:0}
+    .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{background:linear-gradient(150deg,var(--panel),#10201b);border:1px solid var(--line);border-radius:13px;padding:27px}
+    .card-num{color:var(--green);font-size:11px;margin-bottom:25px}
+    .card h3{font-size:21px;line-height:1.35;margin-bottom:12px;letter-spacing:-.025em}
+    .card p{color:var(--muted);font-size:14px;margin-bottom:22px}
+    .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}
+    .chip{display:inline-block;border:1px solid #426055;color:#c8d8cd;padding:3px 8px;border-radius:4px;font-size:11px;line-height:1.5}
+    .case{display:grid;grid-template-columns:250px 1fr;gap:40px;padding:37px 0;border-top:1px solid var(--line)}
+    .case:first-of-type{border-top:0;padding-top:0}
+    .case-side{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+    .case-index{font-size:13px;color:var(--green)}
+    .status{font-size:11px;border-radius:99px;padding:4px 10px;background:#244333;color:#c9f9b1;border:1px solid #3c7054}
+    .status.muted{background:#29382e;border-color:#657650;color:#f1dba9}
+    .case h3{font-size:clamp(24px,2.5vw,32px);line-height:1.35;letter-spacing:-.035em;margin-bottom:12px}
+    .case .summary{font-size:16px;color:#d5e2d6;max-width:780px;margin-bottom:20px}
+    .case-list{margin:0 0 18px;padding-left:19px;color:var(--muted);font-size:14px}
+    .case-list li{padding-left:3px;margin:8px 0}
+    .case-list b{color:var(--ink);font-weight:700}
+    .case-link{font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:7px}
+    .subnote{font-size:12px;color:#92a99a;margin:18px 0 0}
+    .research-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:15px}
+    .research-layout .card{min-height:270px}
+    .research-layout h3{font-size:24px}
+    .research-layout ul{padding-left:18px;color:var(--muted);font-size:14px;margin-bottom:0}
+    .research-layout li{margin:8px 0}
+    .mini-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .mini-list .card{display:flex;flex-direction:column;min-height:250px}
+    .mini-list .card p{flex:1}
+    .proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .proof{border:1px solid var(--line);border-radius:9px;padding:18px 20px;text-decoration:none;background:#10211b;display:flex;gap:20px;align-items:center;justify-content:space-between;color:var(--ink)}
+    .proof:hover{background:#193329;color:var(--ink)}
+    .proof b{display:block;font-size:15px}.proof small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+    .proof span:last-child{color:var(--green);font-size:20px}
+    .footer{padding:52px 0 70px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:22px;color:var(--muted);font-size:13px}
+    .footer strong{color:var(--ink);display:block;font-size:18px;margin-bottom:5px}
+    @media(max-width:900px){.hero{gap:30px;grid-template-columns:1fr .75fr}.section-head{grid-template-columns:120px 1fr}.case{grid-template-columns:170px 1fr;gap:22px}.card{padding:22px}}
+    @media(max-width:700px){.wrap{width:min(calc(100% - 32px),var(--max))}.topbar .wrap{min-height:auto;padding:13px 0;display:block}.brand{display:block;margin-bottom:9px;font-size:13px}nav{gap:12px}nav a{font-size:12px}.nav-cta{padding:3px 8px}.hero{display:block;min-height:auto;padding:67px 0 65px}.hero-graphic{margin-top:45px;max-width:480px}.hero-note{font-size:14px}section{padding:65px 0}.section-head{display:block}.kicker{margin-bottom:13px}.cap-grid,.research-layout,.mini-list,.proof-grid{grid-template-columns:1fr}.case{display:block;padding:32px 0}.case-side{flex-direction:row;align-items:center;gap:10px;margin-bottom:13px}.case h3{font-size:25px}.footer{display:block}.footer>div+div{margin-top:22px}}
+    @media(max-width:390px){nav{gap:9px}nav a{font-size:11px}h1{font-size:45px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
+    @media print{.topbar{position:static}body,body::before{background:#fff;color:#111}section{break-inside:avoid}.card,.proof,.hero-graphic{background:#fff;color:#111;box-shadow:none}.card p,.case-list,.section-intro,.hero-note{color:#333}a{color:#155544}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳转到正文</a>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="返回页面顶部"><span>&lt;</span> yousizaitianqiong <span>/&gt;</span></a>
+      <nav aria-label="页面导航">
+        <a href="#abilities">能力</a><a href="#cases">项目</a><a href="#research">研究</a><a href="#opensource">开源</a><a class="nav-cta" href="https://github.com/yousizaitianqiong" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <div id="top" class="wrap hero">
+      <div>
+        <p class="eyebrow">Applied Vision AI / GPU Computing / Reproducible Systems</p>
+        <h1>把模型能力，<br><em>做成可靠的工程。</em></h1>
+        <p class="hero-lead">我是 <strong>@yousizaitianqiong</strong>，聚焦视觉大模型推理、GPU/HIP 科学计算与参数高效训练。实践过双 RTX A5000 上的 vLLM 私有化部署、Slurm 大网格计算作业，以及 RETFound / PEFT 医学影像训练。</p>
+        <p class="hero-note">从算力与数值验证，到模型服务、数据处理和结果审查；对公开案例明确区分已完成工作、脱敏演示与仍在验证的方向。</p>
+        <div class="actions"><a class="button primary" href="#cases">查看项目案例 <span aria-hidden="true">↘</span></a><a class="button" href="https://github.com/yousizaitianqiong" target="_blank" rel="noopener noreferrer">通过 GitHub 联系我 ↗</a></div>
+      </div>
+      <div class="hero-graphic" role="img" aria-label="从计算验证、模型部署、应用联调到可复现交付的工程流程示意">
+        <div class="window-head"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><span class="mono">CAPABILITY_PIPELINE / 01</span></div>
+        <p class="graph-title mono">// 从计算到服务的闭环</p>
+        <div class="graph-row"><span class="graph-n mono">01</span><div class="graph-box">算力与数值验证<small>Slurm · GPU / HIP · CPU 对照</small></div></div>
+        <div class="graph-row"><span class="graph-n mono">02</span><div class="graph-box">模型训练与部署<small>RETFound / PEFT · Qwen3-VL / vLLM</small></div></div>
+        <div class="graph-row"><span class="graph-n mono">03</span><div class="graph-box">接口与工作流联调<small>FastAPI · 媒体预处理 · 脱敏 Demo</small></div></div>
+        <div class="graph-row"><span class="graph-n mono">04</span><div class="graph-box">复核与可复现交付<small>日志 · 测试 · 文档 · GitHub Actions</small></div></div>
+        <div class="graph-end mono">STATUS <strong>● EVIDENCE-LED ENGINEERING</strong></div>
+      </div>
+    </div>
+
+    <section id="abilities" aria-labelledby="abilities-title">
+      <div class="wrap">
+        <div class="section-head"><p class="kicker">01 / CAPABILITIES</p><div><h2 id="abilities-title">我能解决什么问题</h2><p class="section-intro">围绕视觉 AI 研发与算力工程，将实验、作业、模型和接口串成可检查的流程。</p></div></div>
+        <div class="cap-grid">
+          <article class="card"><p class="card-num mono">01 — INFERENCE</p><h3>视觉大模型推理与私有化部署</h3><p>完成双 RTX A5000 环境中的 Qwen3-VL-8B / vLLM 部署与 OpenAI 兼容接口联调；理解推理优化机制，并按实测与计划分别陈述。</p><div class="chips"><span class="chip">vLLM</span><span class="chip">Qwen3-VL</span><span class="chip">FastAPI</span><span class="chip">Dify</span></div></article>
+          <article class="card"><p class="card-num mono">02 — COMPUTE</p><h3>GPU/HIP 科学计算作业</h3><p>将 PFC 求解流程接入 Slurm 管理的 GPU/HIP 环境，完成 3456 × 2304 网格两阶段仿真与 CPU/HIP 数值一致性验证。</p><div class="chips"><span class="chip">C11</span><span class="chip">FFTW</span><span class="chip">OpenMP</span><span class="chip">Slurm</span><span class="chip">HIP</span></div></article>
+          <article class="card"><p class="card-num mono">03 — TRAINING</p><h3>医学影像模型训练</h3><p>在眼底筛查研究中适配 RETFound 与 Adapter / PEFT，设计长尾数据训练和评估流程，并参与异步推理接口联调。</p><div class="chips"><span class="chip">RETFound</span><span class="chip">Adapter</span><span class="chip">PEFT</span><span class="chip">AUC / Macro F1</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases" aria-labelledby="cases-title">
+      <div class="wrap">
+        <div class="section-head"><p class="kicker">02 / SELECTED WORK</p><div><h2 id="cases-title">项目案例</h2><p class="section-intro">每个案例都写清做了什么、验证到了哪里，以及哪些材料能公开查看。</p></div></div>
+
+        <article class="case" id="case-vision">
+          <div class="case-side"><span class="case-index mono">CASE / 01</span><span class="status">部署已完成 · Demo 脱敏</span></div>
+          <div><h3>视觉道路监测：模型服务与媒体工作流</h3><p class="summary">在双 RTX A5000 上完成 Qwen3-VL-8B 的 vLLM 私有化部署和接口联调；将图片、短视频输入整理为可复核的视觉推理请求。</p>
+            <ul class="case-list"><li><b>实际工作：</b>模型选型与部署验证、OpenAI 兼容 API、GPU 推理链路，以及媒体预处理与工作流接口协作。</li><li><b>公开演示：</b>以 FastAPI / FFmpeg 处理图片和短视频；视频均匀抽取最多 8 帧，生成附时间标记的联系表。仓库使用 Mock 模型复现协议，不包含真实权重或生产结果。</li><li><b>仍在验证：</b>双模型复核、真实 Dify 编排效果与视频稳定性；没有公开可归因的吞吐、延迟或加速数据。</li></ul>
+            <a class="case-link" href="https://github.com/yousizaitianqiong/vision-dual-model-workflow" target="_blank" rel="noopener noreferrer">查看脱敏工作流 Demo ↗</a><p class="subnote">公开仓库是个人技术演示，不代表项目组织发布。</p>
+          </div>
+        </article>
+
+        <article class="case" id="case-hpc">
+          <div class="case-side"><span class="case-index mono">CASE / 02</span><span class="status">作业与一致性已验证</span></div>
+          <div><h3>多晶石墨烯 PFC：大网格仿真与 GPU/HIP 验证</h3><p class="summary">用 C11、FFTW 与 OpenMP 组织两阶段 PFC 密度场求解，并在 Slurm 管理的 GPU/HIP 计算环境完成 3456 × 2304 网格作业。</p>
+            <ul class="case-list"><li><b>计算流程：</b>随机成核与生长、阶段结果重载及松弛；输出密度场快照、Extended XYZ 坐标和诊断图像。</li><li><b>可靠性：</b>对照 CPU 与 HIP 数值结果，记录阶段输入、日志和校验清单；用 smoke test 与 CI 覆盖求解及输出格式。</li><li><b>经验边界：</b>这里展示的是超算环境中的作业与验证经验；不宣称平台运维、分布式并行能力或未经测试的加速幅度。</li></ul>
+            <p class="subnote">计算数据与运行环境不公开。<a href="https://github.com/yousizaitianqiong/polygr-pfc" target="_blank" rel="noopener noreferrer">查看相关公开代码 fork ↗</a>；该仓库 fork 自 abhpc/polygr-pfc，上游代码不视为个人原创。</p>
+          </div>
+        </article>
+
+        <article class="case" id="case-medical">
+          <div class="case-side"><span class="case-index mono">CASE / 03</span><span class="status">训练与评估已完成</span></div>
+          <div><h3>高原眼病筛查：RETFound / PEFT 训练</h3><p class="summary">围绕 15 类疾病的长尾分布，将 RETFound（ViT-Large）与 Adapter / PEFT 结合，完成模型训练、评估和服务联调。</p>
+            <ul class="case-list"><li><b>模型方案：</b>参与分层采样、数据增强、参数高效适配与二分类分治训练流程；以 Accuracy、AUC-ROC 和 Macro F1 审视结果。</li><li><b>汇总指标：</b>测试集 Accuracy 89.73%、AUC-ROC 0.935、Macro F1 0.809；指标来自项目实验记录，并非公开数据集基准。</li><li><b>工程协作：</b>参与 RabbitMQ 异步推理和 REST API 联调。相关计算机视觉研究论文仍在投稿阶段。</li></ul>
+            <p class="subnote"><a href="https://github.com/yousizaitianqiong/yousizaitianqiong/blob/main/projects/plateau-retina-screening.md" target="_blank" rel="noopener noreferrer">查看脱敏项目档案 ↗</a>。合作数据、患者图像、权重、训练日志和未发表稿件均不公开。上游模型项目：<a href="https://github.com/rmaphoh/RETFound" target="_blank" rel="noopener noreferrer">RETFound ↗</a>。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="research" aria-labelledby="research-title">
+      <div class="wrap">
+        <div class="section-head"><p class="kicker">03 / RESEARCH &amp; METHODS</p><div><h2 id="research-title">把机制研究和实验结果分开</h2><p class="section-intro">技术研究提供实验设计依据；性能结论需要独立压测、环境记录和可复核数据。</p></div></div>
+        <div class="research-layout">
+          <article class="card"><p class="card-num mono">INFERENCE / STUDY</p><h3>vLLM 与推测解码机制梳理</h3><p>围绕 PagedAttention、连续批处理、KV Cache 管理、推测解码的草稿与验证流程，完成原理研究和技术汇报，形成可供后续压测使用的指标与对照框架。</p><ul><li>关注吞吐、首 token 延迟、输出速度、显存和接受率等指标的测量方法。</li><li>推测解码的对照压测属于后续计划；当前没有可公开的实测加速结论。</li></ul></article>
+          <article class="card"><p class="card-num mono">RESEARCH / VISION &amp; AUDIO</p><h3>视觉与音频模型研究</h3><p>医学影像方向参与 RETFound / PEFT 训练及计算机视觉论文写作，相关论文仍在投稿。鸟鸣声识别方向参与 HuBERT 迁移、注意力掩码与掩码感知池化实验，并协助识别流程联调。</p><ul><li>鸟鸣音频分类论文已发表于 IEEE ECCST 2025，本人为第二作者；<a href="https://doi.org/10.1109/ECCST68196.2025.11441174" target="_blank" rel="noopener noreferrer">查看 DOI ↗</a>。</li><li>论文与平台成果属于团队协作；<a href="https://github.com/yousizaitianqiong/yousizaitianqiong/blob/main/projects/bird-audio-platform.md" target="_blank" rel="noopener noreferrer">鸟鸣项目脱敏档案 ↗</a>。</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="opensource" aria-labelledby="opensource-title">
+      <div class="wrap">
+        <div class="section-head"><p class="kicker">04 / PUBLIC EVIDENCE</p><div><h2 id="opensource-title">可查看的开源工作</h2><p class="section-intro">公开仓库与已合并贡献提供可点击的代码证据；私有项目只展示脱敏方法和事实边界。</p></div></div>
+        <div class="mini-list">
+          <article class="card"><p class="card-num mono">REPOSITORY / 01</p><h3>视觉双模型工作流 Demo</h3><p>用 Mock 模型、FastAPI 媒体服务与 Dify 工作流文件展示接口契约、预处理和验证方法。它是脱敏演示，不承载真实模型效果。</p><a class="case-link" href="https://github.com/yousizaitianqiong/vision-dual-model-workflow" target="_blank" rel="noopener noreferrer">浏览项目仓库 ↗</a></article>
+          <article class="card"><p class="card-num mono">REPOSITORY / 02</p><h3>Yukie Head Pet</h3><p>一个可复用的桌面宠物与精灵图交付项目，覆盖 Python / PowerShell 辅助脚本、资源打包、质量检查和 GitHub Actions；已有 v1.0.0 Release。</p><a class="case-link" href="https://github.com/yousizaitianqiong/yukie-head-pet/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">查看 v1.0.0 发布 ↗</a></article>
+        </div>
+        <h3 style="font-size:21px;margin:44px 0 16px">已合并的社区贡献</h3>
+        <div class="proof-grid">
+          <a class="proof" href="https://github.com/GenericMappingTools/pygmt/pull/4835" target="_blank" rel="noopener noreferrer"><span><b>PyGMT · PR #4835</b><small>地学绘图工具链贡献 · 已合并</small></span><span aria-hidden="true">↗</span></a>
+          <a class="proof" href="https://github.com/the1812/Bilibili-Evolved/pull/5743" target="_blank" rel="noopener noreferrer"><span><b>Bilibili-Evolved · PR #5743</b><small>开源用户体验改进 · 已合并</small></span><span aria-hidden="true">↗</span></a>
+          <a class="proof" href="https://github.com/duan602728596/48tools/pull/170" target="_blank" rel="noopener noreferrer"><span><b>48tools · PR #170</b><small>应用工程贡献 · 已合并</small></span><span aria-hidden="true">↗</span></a>
+          <a class="proof" href="https://github.com/Fei-Away/Codex-Dream-Skin/pull/386" target="_blank" rel="noopener noreferrer"><span><b>Codex Dream Skin · PR #386</b><small>界面项目贡献 · 已合并</small></span><span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer"><div><strong>@yousizaitianqiong</strong>视觉 AI · GPU 计算 · 可复现工程</div><div>公开联系入口：<a href="https://github.com/yousizaitianqiong" target="_blank" rel="noopener noreferrer">GitHub 主页 ↗</a><br>本页为个人能力展示，内容按公开边界整理。</div></footer>
+</body>
+</html>
